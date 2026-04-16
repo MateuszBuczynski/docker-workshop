@@ -14,3 +14,13 @@ RUN uv sync --locked
 
 COPY ingest_data.py .
 ENTRYPOINT ["uv","run","python", "ingest_data.py"]
+
+
+uv run python ingest_data.py \
+  --pg-user=root \
+  --pg-pass=root \
+  --pg-host=pgdatabase \
+  --pg-port=5432 \
+  --pg-db=ny_taxi \
+  --network=pg-network \
+  --target-table=yellow_taxi_trips
